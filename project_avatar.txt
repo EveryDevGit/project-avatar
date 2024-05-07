@@ -1,4 +1,4 @@
-"sandbox"
+"project_avatar"
 {
 	"base"		"base"
 	"title"		"Project Avatar"

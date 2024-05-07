@@ -1,9 +1,12 @@
+--DeriveGamemode( "sandbox" )
+-- Информация
 GM.Name = "Project Avatar"
-GM.Author = "RG Studios & just good coders and mappers"
-GM.Email = "N/A"
+GM.Author = "RG Studios (Rebased from everyofflineuser)"
+GM.Email = "everyofflineuser@extenvil.ru"
 GM.Website = "N/A"
 GM.TeamBased = true
 
+-- Инклуды
 include("player_class/player_scientist.lua")
 include("player_class/player_testsubject.lua")
 include("player_class/player_testsubject_boosted.lua")
@@ -11,18 +14,20 @@ include("player_class/player_fixer.lua")
 include("core/sh_classprocessor.lua")
 include("core/sh_team_select.lua")
 
+-- Добавление Player Моделей
 player_manager.AddValidModel( "FIXER_anim Playermodels", "models/arachnit/wolfenstein2/nazis/fixer_custom_anim.mdl" );
 player_manager.AddValidModel( "Server scientist", "models/arachnit/wolfenstein2/nazis/nazi_scientist_player.mdl" );
 player_manager.AddValidHands( "Server scientist", "models/arachnit/wolfenstein2/nazis/nazi_scientist_c_arms.mdl", 0, "00000000" )
 player_manager.AddValidModel( "FIXER Playermodels", "models/arachnit/wolfenstein2/nazis/nazi_elite_atom_soldier_player.mdl" );
 player_manager.AddValidHands( "FIXER Playermodels", "models/arachnit/wolfenstein2/nazis/nazi_elite_atom_soldier_c_arms.mdl", 0, "00000000" )
 
+-- Клиент (Клиент в шаред, ну ладно пока живой)
 if CLIENT then
 	local function Viewmodel( vm, ply, weapon )
 		if LocalPlayer():GetModel() == "models/arachnit/wolfenstein2/nazis/nazi_scientist_player.mdl" then
 			Jacket = LocalPlayer():GetBodygroup(5)
 			local Hands = LocalPlayer():GetHands()
-			if ( weapon.UseHands || not weapon:IsScripted() ) then
+			if ( weapon.UseHands or not weapon:IsScripted() ) then -- or = ||
 				if ( IsValid( Hands ) ) then
 					Hands:DrawModel()
 					Hands:SetBodygroup(0,Jacket)
@@ -99,4 +104,4 @@ function string.split(inputstr, sep)
         return t
 end
 
-print("Shared data running!")
+print("Shared-side succerffly runned!")
