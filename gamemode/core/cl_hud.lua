@@ -1,4 +1,4 @@
-if CLIENT then
+if CLIENT then -- Зачем?
 	local hud_coroutines = include("hud/cl_hud_coroutines.lua")
 	local hud_materials = include("hud/cl_hud_materials.lua")
 	local hud_sounds = include("hud/cl_hud_sounds.lua")
@@ -112,6 +112,4 @@ if CLIENT then
 			end
 		end
 	end )
-else
-	print("how the")
 end
